@@ -1,0 +1,257 @@
+.sweet-box {
+  width: 235px;
+  height: 195px;
+  margin-right: 9%;
+  perspective: 700px;
+  filter: drop-shadow(0 22px 10px rgba(0, 0, 0, .28));
+}
+
+.gift-box-image {
+  position: absolute;
+  z-index: 8;
+  left: -12px;
+  top: -2px;
+  width: 250px;
+  height: 190px;
+  object-fit: contain;
+  pointer-events: none;
+  transition: opacity .65s ease, transform .8s cubic-bezier(.2, .8, .2, 1);
+}
+
+.sweet-box:not(.is-open) .box__lid,
+.sweet-box:not(.is-open) .box__body,
+.sweet-box:not(.is-open) .box__shadow {
+  visibility: hidden;
+}
+
+.sweet-box.is-open .box__lid,
+.sweet-box.is-open .box__body,
+.sweet-box.is-open .box__shadow {
+  visibility: visible;
+}
+
+.sweet-box.is-open .gift-box-image { opacity: 1; transform: translateY(8px) scale(.94) rotate(-1deg); }
+
+.ladoo-pop {
+  position: absolute;
+  z-index: 9;
+  left: 67px;
+  top: -34px;
+  width: 106px;
+  height: 106px;
+  overflow: hidden;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translateY(35px) scale(.72);
+  filter: drop-shadow(0 13px 8px rgba(67, 25, 4, .35));
+  transition: opacity .35s ease .25s, transform .8s cubic-bezier(.2, .8, .2, 1) .25s;
+}
+
+.ladoo-pop img {
+  width: 125%;
+  height: 125%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center 55%;
+  transform: translate(-10%, -9%);
+}
+
+.sweet-box.is-open .ladoo-pop { opacity: 1; transform: translateY(0) scale(1); }
+
+.box__body {
+  left: 16px;
+  top: 72px;
+  width: 203px;
+  height: 112px;
+  display: block;
+  overflow: visible;
+  border: 0;
+  border-radius: 2px 2px 7px 7px;
+  background: linear-gradient(120deg, #d6bd8b 0%, #efe3c1 16%, #c09d62 100%);
+  box-shadow: inset 0 -7px rgba(113, 75, 35, .2), 8px 12px 0 rgba(53, 38, 21, .3);
+  transform: perspective(600px) rotateX(-4deg) rotateY(-5deg);
+}
+
+.box__body::before {
+  content: '';
+  position: absolute;
+  inset: 9px 9px 13px;
+  border: 7px solid #6c3e1d;
+  border-top-width: 9px;
+  border-radius: 2px;
+  background: #4a2918;
+  box-shadow: inset 0 5px 8px rgba(0, 0, 0, .45);
+}
+
+.box__body::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 3px;
+  height: 4px;
+  background: #9c723c;
+  opacity: .8;
+}
+
+.box__body > span:not(.box__contents),
+.box__seal,
+.box__inner {
+  display: none;
+}
+
+.box__contents {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 4px;
+  position: absolute;
+  z-index: 3;
+  left: 16px;
+  right: 16px;
+  top: 17px;
+  bottom: 19px;
+  padding: 3px;
+  background: #6d3d1c;
+}
+
+.box__treat {
+  position: relative !important;
+  display: grid !important;
+  place-items: center;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 2px;
+  background: radial-gradient(circle at 30% 25%, #f8d77d 0 5%, transparent 6%), linear-gradient(135deg, #c8731f, #8e3f17);
+  box-shadow: inset 0 0 0 2px rgba(255, 222, 148, .28), inset 0 -5px 5px rgba(75, 23, 8, .26);
+}
+
+.box__treat:nth-child(2n) { background: radial-gradient(circle at 55% 40%, #ffe1a0 0 6%, transparent 7%), linear-gradient(135deg, #9e3b1a, #e19b38); }
+.box__treat:nth-child(3n) { background: radial-gradient(circle at 45% 45%, #e9c77c 0 5%, transparent 6%), #3f722b; }
+.box__treat:nth-child(4n) { background: radial-gradient(circle at 30% 25%, #fff0bd 0 5%, transparent 6%), #9b5531; }
+
+.box__treat--ladu {
+  border-radius: 47% 53% 52% 48%;
+  color: #fff0b0;
+  font-size: 13px;
+  text-shadow: 0 0 5px #fff;
+  background: radial-gradient(circle at 32% 28%, #ffd978 0 4%, transparent 5%), radial-gradient(circle at 67% 58%, #b96518 0 5%, transparent 6%), linear-gradient(145deg, #f8bd40, #b96118) !important;
+  transform: scale(.88);
+}
+
+.box__treat--ladu img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+  border-radius: inherit;
+  filter: drop-shadow(0 2px 2px rgba(65, 24, 6, .35));
+}
+
+.box__lid {
+  left: 16px;
+  top: 13px;
+  width: 203px;
+  height: 83px;
+  border: 0;
+  border-radius: 4px 4px 2px 2px;
+  background: linear-gradient(135deg, #f2e8ca, #d5bd8d);
+  box-shadow: inset 0 0 0 2px #c19a5e, inset 0 -7px rgba(117, 74, 30, .15), 5px 6px 0 rgba(53, 38, 21, .25);
+  transform-origin: 50% 100%;
+  transform: perspective(600px) rotateX(0deg) rotateY(-5deg);
+  transition: transform .9s cubic-bezier(.2, .8, .2, 1);
+}
+
+.box__lid::before {
+  content: 'SWEET\A  GIFT';
+  white-space: pre;
+  display: grid;
+  place-items: center;
+  inset: 7px;
+  border: 1px solid #b6955d;
+  border-radius: 2px;
+  color: #8d632f;
+  font: 14px/1.35 var(--serif);
+  letter-spacing: .18em;
+  text-align: center;
+  background: linear-gradient(125deg, transparent 0 46%, #b7955c22 47% 48%, transparent 49%);
+}
+
+.box__lid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: auto;
+  height: auto;
+  background: linear-gradient(90deg, transparent 43%, #8d5b2b 44% 49%, #c99b5c 50% 53%, transparent 54%), linear-gradient(0deg, transparent 44%, #8d5b2b 45% 52%, #c99b5c 53% 57%, transparent 58%);
+  box-shadow: none;
+  opacity: .85;
+  pointer-events: none;
+}
+
+.box__lid small {
+  left: 72px;
+  top: 61px;
+  z-index: 4;
+  color: #8d632f;
+  font: 6px var(--mono);
+  letter-spacing: .1em;
+  text-shadow: none;
+}
+
+.box__lid i,
+.box__lid b {
+  display: block;
+  z-index: 5;
+  width: 46px;
+  height: 25px;
+  top: -17px;
+  border: 0;
+  border-radius: 50% 12% 50% 10%;
+  background: linear-gradient(145deg, #dfbc7d, #815326);
+  box-shadow: 4px 4px 5px rgba(50, 29, 10, .25);
+}
+
+.box__lid i { left: 72px; transform: rotate(25deg); }
+.box__lid b { left: 91px; transform: scaleX(-1) rotate(25deg); }
+.sweet-box.is-open .box__lid { transform: perspective(600px) translateY(-78px) rotateX(78deg) rotateY(-5deg); }
+.box__shadow { left: 18px; bottom: 1px; width: 210px; height: 18px; background: rgba(26, 22, 14, .45); filter: blur(9px); }
+.ladu-image { position: absolute; inset: -10px; width: calc(100% + 20px); height: calc(100% + 20px); object-fit: cover; object-position: center 55%; border-radius: inherit; filter: drop-shadow(0 12px 9px rgba(82, 32, 9, .28)); }
+.ladu-plate { display: none; }
+.ladu__gem { z-index: 4; }
+.ladu { background: transparent !important; background-image: none !important; box-shadow: none !important; }
+.ladu::after { display: none !important; }
+.ladu:focus-visible { box-shadow: 0 0 0 4px rgba(232, 93, 69, .4) !important; }
+.birthday-first-line { position: relative; display: inline-block; }
+.bubu-image--happy { position: absolute; z-index: 4; left: calc(100% + 6px); top: 50%; width: 78px; height: 78px; object-fit: contain; object-position: center; opacity: 0; transform: translate(-14px, -50%) rotate(7deg) scale(.8); filter: drop-shadow(0 8px 5px rgba(82, 32, 9, .2)) saturate(1.08) contrast(1.04); transition: opacity .8s ease, transform .8s cubic-bezier(.2, .8, .2, 1); }
+.birthday-ready .bubu-image--happy { opacity: 1; transform: translate(0, -50%) rotate(7deg) scale(1); }
+.birthday-last-line { position: relative; display: inline-block; }
+.hbd-image--after-ladoo { position: absolute; z-index: 4; left: calc(100% + 3px); top: calc(100% - 48px); width: 78px; height: 78px; object-fit: contain; opacity: 0; transform: translate(16px, 0) scale(.8); filter: drop-shadow(0 8px 5px rgba(82, 32, 9, .18)) saturate(1.08) contrast(1.04); transition: opacity .8s ease .18s, transform .8s cubic-bezier(.2, .8, .2, 1) .18s; }
+.birthday-ready .hbd-image--after-ladoo { opacity: 1; transform: translate(0, 0) scale(1); }
+.tap-hint { margin-right: 12%; }
+
+@media (max-width: 680px) {
+  .sweet-box { width: 220px; margin-right: 1%; }
+  .bubu-image--happy { left: calc(100% + 3px); width: 62px; height: 62px; }
+  .hbd-image--after-ladoo { left: calc(100% + 2px); top: calc(100% - 34px); width: 62px; height: 62px; }
+}
+
+.sweet-box:not(.is-open) .box__lid,
+.sweet-box:not(.is-open) .box__body,
+.sweet-box:not(.is-open) .box__shadow {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sweet-box.is-open .box__lid,
+.sweet-box.is-open .box__body,
+.sweet-box.is-open .box__shadow {
+  opacity: 1;
+}
+
+/* The uploaded box is the realistic hero object; the CSS construction stays out of the open scene. */
+.sweet-box .box__lid,
+.sweet-box .box__body,
+.sweet-box .box__shadow {
+  display: none;
+}

@@ -1,0 +1,45 @@
+.sweet-box {
+  transform-style: preserve-3d;
+}
+
+.box__body {
+  transform: perspective(360px) rotateX(-5deg) rotateY(-7deg) skewX(-1deg);
+}
+
+.box__lid {
+  transform: perspective(360px) rotateX(-5deg) rotateY(-7deg) rotate(-2deg);
+}
+
+.sweet-box.is-open .box__lid {
+  transform: perspective(360px) translateY(-76px) rotateX(-5deg) rotateY(-16deg) rotate(-8deg);
+}
+
+.ladu {
+  border-radius: 47% 53% 51% 49% / 53% 47% 54% 46%;
+  background-image:
+    radial-gradient(circle at 18% 28%, #fbd46a 0 2.4%, transparent 2.9%),
+    radial-gradient(circle at 34% 17%, #c9781a 0 2%, transparent 2.6%),
+    radial-gradient(circle at 52% 18%, #ffd879 0 2.5%, transparent 3%),
+    radial-gradient(circle at 70% 26%, #d47e1e 0 2%, transparent 2.7%),
+    radial-gradient(circle at 83% 44%, #f8c657 0 2.4%, transparent 3%),
+    radial-gradient(circle at 22% 52%, #d47e1e 0 2%, transparent 2.8%),
+    radial-gradient(circle at 42% 42%, #fbd46a 0 2.6%, transparent 3.2%),
+    radial-gradient(circle at 62% 39%, #c9781a 0 2%, transparent 2.8%),
+    radial-gradient(circle at 76% 62%, #ffd879 0 2.7%, transparent 3.2%),
+    radial-gradient(circle at 32% 73%, #e38d24 0 2.2%, transparent 2.8%),
+    radial-gradient(circle at 52% 66%, #f8c657 0 2.4%, transparent 3%),
+    radial-gradient(circle at 64% 84%, #c9781a 0 2%, transparent 2.7%),
+    radial-gradient(circle at 84% 78%, #fbd46a 0 2.3%, transparent 2.8%),
+    radial-gradient(circle at 13% 82%, #d47e1e 0 2%, transparent 2.7%);
+  background-blend-mode: soft-light;
+  box-shadow: inset -18px -18px 22px #a95b15, inset 14px 9px 17px #ffe08a, 0 17px 18px #52200d3d;
+}
+
+.ladu::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border-radius: inherit;
+  background: radial-gradient(circle at 42% 36%, transparent 0 42%, rgba(116, 55, 9, .16) 82%, rgba(80, 28, 4, .26) 100%);
+  pointer-events: none;
+}
